@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Extra styling for services tabs */
+        .services-container {
+            max-width: 900px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .service-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .service-tab {
+            cursor: pointer;
+            padding: 10px 20px;
+            border-bottom: 2px solid transparent;
+            font-weight: bold;
+        }
+        .service-tab.active {
+            border-bottom: 2px solid #FF7F50; /* Orange color like homepage */
+            color: #FF7F50;
+        }
+        .service-content {
+            display: none;
+            text-align: left;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        .service-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">MyWebsite</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html">Products</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="services-container">
+        <h1>Our Services</h1>
+        <p>Explore our professional services designed to make your life easier and more productive.</p>
+
+        <!-- Tabs -->
+        <div class="service-tabs">
+            <div class="service-tab active" onclick="openService(1)">Service 1</div>
+            <div class="service-tab" onclick="openService(2)">Service 2</div>
+            <div class="service-tab" onclick="openService(3)">Service 3</div>
+        </div>
+
+        <!-- Service Contents -->
+        <div id="service1" class="service-content active">
+            <h2>Service 1: Web Design</h2>
+            <p>We craft visually stunning and user-friendly websites that adapt perfectly to all devices. Every detail is carefully designed to enhance user experience and brand identity. Perfect for businesses, portfolios, and personal projects alike.</p>
+        </div>
+
+        <div id="service2" class="service-content">
+            <h2>Service 2: SEO Optimization</h2>
+            <p>Our SEO strategies boost your website’s visibility on search engines. We focus on organic growth, keyword research, and performance analysis to ensure your site reaches the right audience effectively, driving traffic and engagement consistently.</p>
+        </div>
+
+        <div id="service3" class="service-content">
+            <h2>Service 3: Mobile App Development</h2>
+            <p>We develop high-quality mobile applications for both Android and iOS. Our apps are fast, responsive, and designed to provide a seamless user experience. From design to deployment, we cover everything to make your app a success in the market.</p>
+        </div>
+    </div>
+
+    <script>
+        function openService(num) {
+            // Hide all service contents
+            const contents = document.querySelectorAll('.service-content');
+            contents.forEach(c => c.classList.remove('active'));
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.service-tab');
+            tabs.forEach(t => t.classList.remove('active'));
+
+            // Show selected content and highlight tab
+            document.getElementById('service' + num).classList.add('active');
+            tabs[num - 1].classList.add('active');
+        }
+    </script>
+</body>
+</html>
